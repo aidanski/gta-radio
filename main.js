@@ -7,7 +7,8 @@ var regexRadio = /(radio|gta radio)/;
 let regexStations = [/(NONE)/, /(rap|classic)/, /(rock)/, /(pop)/, /(soulwax|soul|wax)/, /(worldwide|world|wide)/, /(flylo|fly)/, /(blue|ark)/, /(lowdown|low|down)/, /(space)/, /(lab)/, /(rebel)/, /(blaine)/, /(channel x|x)/, /(blonded)/, /(east los|los)/, /(lsur|underground)/, /(\bls\b|santos)/, /(mirror|park)/, /(vinewood|blvd)/, /(talk)/];
 let DJ;
 let voiceChannel;
-let channel;
+var channel = 0;
+var channelSet = false;
 
 
 function parseMessage(msg)
@@ -54,16 +55,21 @@ client.on('message', async message =>
 {
   
 	// Join the same voice channel of the author of the message
-	if (message.member.voice.channel) 
+	if (message.member.voice.channel | channelSet === true) 
   {
-    try{
-      
-    channel = message.member.voice.channel;
+    try
+    {
+      if(channelSet === false)
+        {
+          channel = message.member.voice.channel;
+          channelSet = true;
+        }
     if(getCommands(message.content) === false)
     {
       await channel.leave();
+      channelSet = false;
     }
-    else if (`Test message.content:`+regexRadio.test(message.content)) 
+    else if (regexRadio.test(message.content) === true) 
     {
       
       switch(parseMessage(message.content))

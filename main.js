@@ -4,7 +4,7 @@ var voice, player;
 
 //regex
 var regexRadio = /(radio|gta radio)/;
-let regexStations = [/(NONE)/, /(rap|classic)/, /(rock)/, /(pop)/, /(soulwax|soul|wax)/, /(worldwide|world|wide)/, /(flylo|fly|low|lo)/, /(blue|ark)/, /(lowdown|low|down)/, /(space)/, /(lab)/, /(rebel)/, /(blaine)/, /(channel x|x)/, /(blonded)/, /(east los|los)/, /(lsur|underground)/, /(ls|santos)/, /(mirror|park)/, /(vinewood|blvd)/, /(talk)/];
+let regexStations = [/(NONE)/, /(rap|classic)/, /(rock)/, /(pop)/, /(soulwax|soul|wax)/, /(worldwide|world|wide)/, /(flylo|fly)/, /(blue|ark)/, /(lowdown|low|down)/, /(space)/, /(lab)/, /(rebel)/, /(blaine)/, /(channel x|x)/, /(blonded)/, /(east los|los)/, /(lsur|underground)/, /(\bls\b|santos)/, /(mirror|park)/, /(vinewood|blvd)/, /(talk)/];
 let DJ;
 let voiceChannel;
 let channel;
